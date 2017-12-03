@@ -1,0 +1,24 @@
+{
+  "files": [
+    "lib",
+    "dist",
+    "readme.md"
+  ],
+  "name": "fantasy-functions",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  },
+  "scripts": {
+    "transpile": "mkdir -p dist && babel lib -d dist --source-maps",
+    "prepublish": "yarn transpile",
+    "test": "mocha"
+  }
+}
