@@ -4,7 +4,7 @@
     "dist",
     "readme.md"
   ],
-  "name": "fantasy-functions",
+  "name": "@theludd/fantasy-functions",
   "version": "0.0.0",
   "main": "dist/fantasy-functions",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
