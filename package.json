@@ -6,19 +6,26 @@
   ],
   "name": "fantasy-functions",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "dist/fantasy-functions",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@theludd/eslint-config-gaius": "^1.0.2",
     "babel-cli": "^6.26.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
+    "eslint": "^4.12.1",
     "mocha": "^4.0.1"
   },
   "scripts": {
+    "lint": "eslint lib test",
     "transpile": "mkdir -p dist && babel lib -d dist --source-maps",
     "prepublish": "yarn transpile",
     "test": "mocha"
+  },
+  "dependencies": {
+    "fantasy-land": "^3.4.0",
+    "yafu": "^0.1.7"
   }
 }
