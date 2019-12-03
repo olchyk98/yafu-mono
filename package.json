@@ -10,13 +10,13 @@
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@theludd/eslint-config-gaius": "^2.0.4",
+    "@theludd/eslint-config-gaius": "^2.0.8",
     "babel-cli": "^6.26.0",
     "babel-plugin-add-module-exports": "^1.0.2",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
-    "eslint": "^5.16.0",
-    "mocha": "^6.1.4"
+    "eslint": "^6.7.2",
+    "mocha": "^6.2.2"
   },
   "scripts": {
     "lint": "eslint lib test",
