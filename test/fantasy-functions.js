@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 import { assert } from 'chai'
 import FL from 'fantasy-land'
 import ff from '../lib/fantasy-functions'
