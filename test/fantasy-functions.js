@@ -12,7 +12,6 @@ const {
 } = ff
 
 class Identity {
-
   static [FL.of] (v) {
     return new Identity(v)
   }
@@ -31,7 +30,6 @@ class Identity {
 }
 
 class Add {
-
   static [FL.empty] () {
     return 0
   }
