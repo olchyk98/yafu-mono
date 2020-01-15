@@ -22,7 +22,8 @@
     "lint": "eslint lib test",
     "transpile": "mkdir -p dist && babel lib -d dist --source-maps",
     "prepublish": "yarn transpile",
-    "test": "mocha"
+    "test": "yarn unit",
+    "unit": "mocha"
   },
   "dependencies": {
     "fantasy-land": "^4.0.1",
