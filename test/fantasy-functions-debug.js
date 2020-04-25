@@ -13,6 +13,7 @@ const {
 const {
   ap,
   chain,
+  concat,
   empty,
   equals,
   extract,
@@ -93,7 +94,15 @@ class Const {
 
 class Add {
   static [FL.empty] () {
-    return 0
+    return new Add(0)
+  }
+
+  constructor (v) {
+    this.v = v
+  }
+
+  [FL.concat] (b) {
+    return new Add(this.v + b.v)
   }
 }
 
@@ -153,7 +162,7 @@ describe('fantasyFunctions', () => {
   })
 
   it('should work for nullary static functions', () => {
-    equal(empty(Add), 0)
+    deepEqual(empty(Add), new Add(0))
   })
 
   it('should work for nullary methods', () => {
@@ -179,26 +188,20 @@ describe('errors', () => {
   })
 
   it('throws nice errors if input is null', () => {
-    throws(() => equals(null, i2), buildMessage([
-      'equals expects an instance of Identity but got null',
+    throws(() => map(null, i2), buildMessage([
+      'map expects a function but got null',
     ]))
   })
 
   it('throws nice errors if input is undefined', () => {
-    throws(() => equals(undefined, i2), buildMessage([
-      'equals expects an instance of Identity but got undefined',
+    throws(() => map(undefined, i2), buildMessage([
+      'map expects a function but got undefined',
     ]))
   })
 
   it('throws for expected _sameType input', () => {
-    throws(() => equals(2, i2), buildMessage([
-      'equals expects an instance of Identity but got 2',
-    ]))
-  })
-
-  it('throws for expected _sameType input', () => {
-    throws(() => equals(2, i2), buildMessage([
-      'equals expects an instance of Identity but got 2',
+    throws(() => concat(2, empty(Add)), buildMessage([
+      'concat expects an instance of Add but got 2',
     ]))
   })
 
