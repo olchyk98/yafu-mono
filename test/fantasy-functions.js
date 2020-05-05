@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import { assert } from 'chai'
-import FL from 'fantasy-land'
+import * as FL from 'fantasy-land'
 import ff from '../lib/fantasy-functions'
 
 const { deepEqual, equal, isEmpty } = assert
@@ -37,12 +37,13 @@ class Add {
 
 describe('fantasyFunctions', () => {
   const i1 = Identity[FL.of](1)
+  const flKeys = Object.keys(FL).filter((k) => k !== 'default')
   const countKeys = (o) => Object.keys(o).length
 
   it('should have the same amount of functions as specified by FL', () => {
-    equal(countKeys(ff), countKeys(FL))
-    const nulls = Object.keys(ff).filter((x) => ff[x] == null)
+    const nulls = flKeys.filter((x) => ff[x] == null)
     isEmpty(nulls, 'Some methods were undefined')
+    equal(countKeys(ff), flKeys.length)
   })
 
   it('should work for unary methods', () => {
