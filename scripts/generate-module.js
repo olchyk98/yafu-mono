@@ -1,17 +1,24 @@
-const { writeFileSync } = require('fs')
-const definitions = require('../dist/definitions')
+const { existsSync, mkdirSync, writeFileSync } = require('fs')
+const fantasyLand = require('fantasy-land')
 
-const names = Object.keys(definitions)
+const names = Object.keys(fantasyLand)
 
-const lines = names.map((n) => (
-  `export const ${n} = createDebugFunction('${n}', definitions.${n})`
-))
+function generate (name, path) {
+  const lines = names.map((n) => (
+    `export const ${n} = ${name}('${n}', definitions.${n})`
+  ))
 
-const content = [
-  "import definitions from '../lib/definitions'",
-  "import createDebugFunction from '../lib/create-debug-function'",
-  '',
-  ...lines
-].join('\n')
+  return [
+    "import definitions from '../../lib/definitions.js'",
+    `import ${name} from '../../lib/${path}'`,
+    '',
+    ...lines
+  ].join('\n')
+}
 
-writeFileSync('dist/es6.js', content)
+
+if (!existsSync('dist/es6')) {
+  mkdirSync('dist/es6', { recursive: true })
+}
+writeFileSync('dist/es6/fantasy-functions-development.js', generate('createDebugFunction', 'create-debug-function.js'))
+writeFileSync('dist/es6/fantasy-functions-production.js', generate('createFunction', 'create-function.js'))

@@ -2,7 +2,7 @@
 import { assert } from 'chai'
 import { I, curry } from 'yafu'
 import * as FL from 'fantasy-land'
-import ff from '../lib/fantasy-functions-debug'
+import * as ff from '../dist/es6/fantasy-functions-development.js'
 
 const {
   deepEqual,

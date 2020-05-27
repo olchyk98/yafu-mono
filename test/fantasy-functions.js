@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import { assert } from 'chai'
 import * as FL from 'fantasy-land'
-import ff from '../lib/fantasy-functions'
+import * as ff from '../dist/es6/fantasy-functions-production.js'
 
 const { deepEqual, equal, isEmpty } = assert
 const {
@@ -31,7 +31,15 @@ class Identity {
 
 class Add {
   static [FL.empty] () {
-    return 0
+    return new Add(0)
+  }
+
+  static [FL.of] (v) {
+    return new Add(v)
+  }
+
+  constructor (v) {
+    this.v = v
   }
 }
 
@@ -65,6 +73,6 @@ describe('fantasyFunctions', () => {
   })
 
   it('should work for nullary functions', () => {
-    equal(empty(Add), 0)
+    deepEqual(empty(Add), of(Add, 0))
   })
 })

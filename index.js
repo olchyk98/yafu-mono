@@ -1,3 +1,3 @@
 module.exports = process.env.NODE_ENV === 'production'
-  ? require('./dist/fantasy-functions')
-  : require('./dist/fantasy-functions-debug')
+  ? require('./dist/cjs/fantasy-functions-production')
+  : require('./dist/cjs/fantasy-functions-development')
