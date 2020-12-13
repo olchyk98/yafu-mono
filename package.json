@@ -1,0 +1,20 @@
+{
+  "name": "yafu",
+  "private": true,
+  "license": "MIT",
+  "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
+  "workspaces": [
+    "modules/*"
+  ],
+  "scripts": {
+    "clean": "lerna run clean --parallel",
+    "prepublishOnly": "yarn clean && yarn test",
+    "pretest": "yarn && yarn transpile",
+    "test": "lerna run test",
+    "transpile": "lerna run transpile --parallel",
+    "watch": "lerna run --parallel transpile -- -w"
+  },
+  "devDependencies": {
+    "lerna": "^3.21.1"
+  }
+}
