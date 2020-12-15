@@ -12,9 +12,9 @@
   ],
   "scripts": {
     "clean": "rm -rf dist",
-    "lint": "eslint lib test",
+    "lint": "eslint lib test *.js",
     "prepublishOnly": "yarn clean && yarn transpile",
-    "test": "yarn unit",
+    "test": "yarn lint && yarn unit",
     "transpile": "node scripts/generate-module.js && rollup -c",
     "unit": "mocha"
   },
