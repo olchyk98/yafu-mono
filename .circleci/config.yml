@@ -1,0 +1,54 @@
+version: 2.1
+
+commands:
+  install:
+    parameters:
+      node-version:
+        default: '12'
+        type: string
+    steps:
+      - checkout
+      - run:
+          name: Set auth token
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - restore_cache:
+          name: 'Restoring cache'
+          key: yafu-node-<< parameters.node-version >>-{{ checksum "yarn.lock" }}
+      - run:
+          name: 'Install packages'
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: 'Saving cache'
+          key: yafu-node-<< parameters.node-version >>-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+            - modules/eslint-config-yafu/node_modules
+            - modules/yafu/node_modules
+            - modules/fantasy-function/node_modules
+  run-tests:
+    steps:
+      - run:
+          name: Set auth token
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run:
+          command: yarn test
+          name: Run tests
+jobs:
+  test:
+    parameters:
+      node-version:
+        type: string
+    docker:
+      - image: circleci/node:<< parameters.node-version >>
+    steps:
+      - install:
+          node-version: << parameters.node-version >>
+      - run-tests
+
+workflows:
+  test-all:
+    jobs:
+      - test:
+          matrix:
+            parameters:
+              node-version: [ '10', '12', '14' ]
