@@ -1,0 +1,32 @@
+{
+  "name": "@yafu/lens",
+  "version": "1.0.0",
+  "description": "Lenses to brighten up your functional programming",
+  "license": "MIT",
+  "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
+  "main": "dist/lens.js",
+  "module": "index.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "lint": "eslint lib test *.js",
+    "prepublishOnly": "yarn clean && yarn transpile",
+    "test": "yarn lint && yarn unit",
+    "transpile": "rollup -c",
+    "unit": "mocha"
+  },
+  "dependencies": {
+    "@yafu/const": "^1.0.0",
+    "@yafu/fantasy-functions": "^2.0.3",
+    "@yafu/identity": "^1.0.0",
+    "yafu": "^0.1.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/register": "^7.12.10",
+    "@rollup/plugin-node-resolve": "^11.0.1",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "rollup-plugin-replace": "^2.2.0"
+  }
+}
