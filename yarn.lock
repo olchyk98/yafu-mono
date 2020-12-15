@@ -1758,14 +1758,6 @@
     eslint-config-airbnb-base "^14.1.0"
     eslint-plugin-import "^2.20.2"
 
-"@theludd/fantasy-functions@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@theludd/fantasy-functions/-/fantasy-functions-2.0.3.tgz#66c0a623c6940492cd3e03d59e94f33def6433f9"
-  integrity sha512-aueZmiHucIPtJcbdf66RU2x9xRo4zRqC7RzIrBNDKuWjPqUfmXdtlNapvpTpHc+Fr04AtXAJ5MbxFXVq+L0fYQ==
-  dependencies:
-    fantasy-land "^4.0.1"
-    yafu "^0.1.13"
-
 "@types/estree@0.0.39":
   version "0.0.39"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
@@ -3424,7 +3416,7 @@ extsprintf@1.3.0, extsprintf@^1.2.0:
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
   integrity sha1-lpGEQOMEGnpBT4xS48V06zw+HgU=
 
-fantasy-land@^4.0.1, fantasy-land@^4.1.0:
+fantasy-land@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/fantasy-land/-/fantasy-land-4.1.0.tgz#bfb7cd58dd88548dca5f4c25e20f5e2981e7c690"
   integrity sha512-bmukPWTlviPDc2qpoLDJ6sBKCngRdYBNXG1ZuKcf0yoLpx3ENe9sD58/GKu8RAf9+RKeGAJNyBjiCuRMnW2PIA==
