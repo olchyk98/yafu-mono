@@ -1,6 +1,0 @@
-{
-  "extends": "@theludd/eslint-config-gaius",
-  "rules": {
-    "no-nested-ternary": "off"
-  }
-}
