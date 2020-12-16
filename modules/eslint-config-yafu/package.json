@@ -1,5 +1,5 @@
 {
-  "name": "@theludd/eslint-config-yafu",
+  "name": "@yafu/eslint-config-yafu",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",

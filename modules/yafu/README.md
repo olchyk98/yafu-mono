@@ -6,7 +6,7 @@ yafu is a functional programming library that supplies basic useful functions fo
 Very similar to [Ramda](http://ramdajs.com) but with a slightly different philosophy.
 
 Key points:
-  * [`curry`](https://github.com/TheLudd/yafu/blob/master/lib/curry.js) works a bit differently than in many other JavaScript libraries,
+  * [`curry`](https://github.com/TheLudd/yafu-mono/blob/master/modules/yafu/lib/curry.js) works a bit differently than in many other JavaScript libraries,
   specifically when it is the case that a curried function receives more agruments than it has declared
   * each function *really* only does one thing and one thing only
   * no checking of types inside functions
