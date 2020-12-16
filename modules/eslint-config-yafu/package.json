@@ -1,7 +1,7 @@
 {
   "name": "@yafu/eslint-config-yafu",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": ".eslintrc.js",
   "license": "MIT",
   "scripts": {
     "pretest": "yarn",

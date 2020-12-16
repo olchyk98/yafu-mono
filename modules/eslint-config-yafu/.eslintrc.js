@@ -17,7 +17,7 @@ module.exports = {
         devDependencies: [
           '**/test*/**',
           '**/build/**',
-          'rollup.config.js',
+          '**/rollup.config.js',
         ],
       },
     ],

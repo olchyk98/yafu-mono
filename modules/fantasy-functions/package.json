@@ -27,7 +27,7 @@
     "@babel/preset-env": "^7.12.10",
     "@babel/register": "^7.12.10",
     "@rollup/plugin-node-resolve": "^11.0.1",
-    "@yafu/eslint-config-yafu": "^2.0.9",
+    "@yafu/eslint-config-yafu": "^1.0.0",
     "babel-plugin-add-module-exports": "^1.0.4",
     "chai": "^4.2.0",
     "eslint": "^7.15.0",

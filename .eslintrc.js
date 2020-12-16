@@ -1,1 +1,3 @@
-modules/eslint-config-yafu/.eslintrc.js
+module.exports = {
+  extends: '@yafu/eslint-config-yafu'
+}

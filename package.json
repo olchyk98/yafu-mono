@@ -15,6 +15,7 @@
     "watch": "lerna run --parallel transpile -- -w"
   },
   "devDependencies": {
+    "@yafu/eslint-config-yafu": "^1.0.0",
     "lerna": "^3.21.1"
   }
 }
