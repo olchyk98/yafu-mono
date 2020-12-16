@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "@yafu/eslint-config-yafu": "^1.0.0",
-    "lerna": "^3.21.1"
+    "array-equal": "^1.0.0",
+    "lerna": "^3.21.1",
+    "yaml": "^1.10.0"
   }
 }

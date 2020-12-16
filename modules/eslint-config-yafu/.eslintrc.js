@@ -18,6 +18,7 @@ module.exports = {
           '**/test*/**',
           '**/build/**',
           '**/rollup.config.js',
+          'scripts/**',
         ],
       },
     ],

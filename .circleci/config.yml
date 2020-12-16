@@ -11,6 +11,9 @@ commands:
       - run:
           name: Set auth token
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run:
+          name: Verify cache settings
+          command: ls modules | xargs node scripts/verify-paths.js
       - restore_cache:
           name: 'Restoring cache'
           key: yafu-node-<< parameters.node-version >>-{{ checksum "yarn.lock" }}-{{ checksum ".circleci/config.yml" }}
@@ -21,10 +24,14 @@ commands:
           name: 'Saving cache'
           key: yafu-node-<< parameters.node-version >>-{{ checksum "yarn.lock" }}-{{ checksum ".circleci/config.yml" }}
           paths:
+            #pathsbegin
             - node_modules
+            - modules/const/node_modules
             - modules/eslint-config-yafu/node_modules
+            - modules/fantasy-functions/node_modules
+            - modules/identity/node_modules
             - modules/yafu/node_modules
-            - modules/fantasy-function/node_modules
+            #pathsend
   run-tests:
     steps:
       - run:
