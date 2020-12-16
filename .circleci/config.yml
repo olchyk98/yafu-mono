@@ -13,13 +13,13 @@ commands:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
       - restore_cache:
           name: 'Restoring cache'
-          key: yafu-node-<< parameters.node-version >>-{{ checksum "yarn.lock" }}
+          key: yafu-node-<< parameters.node-version >>-{{ checksum "yarn.lock" }}-{{ checksum ".circleci/config.yml" }}
       - run:
           name: 'Install packages'
           command: yarn install --frozen-lockfile
       - save_cache:
           name: 'Saving cache'
-          key: yafu-node-<< parameters.node-version >>-{{ checksum "yarn.lock" }}
+          key: yafu-node-<< parameters.node-version >>-{{ checksum "yarn.lock" }}-{{ checksum ".circleci/config.yml" }}
           paths:
             - node_modules
             - modules/eslint-config-yafu/node_modules
