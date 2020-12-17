@@ -23,5 +23,6 @@
     "@rollup/plugin-node-resolve": "^11.0.1",
     "eslint": "^7.15.0",
     "rollup": "^2.35.1"
-  }
+  },
+  "gitHead": "cbcf21776ce5fb38d8bdb730f944af4736fc1403"
 }

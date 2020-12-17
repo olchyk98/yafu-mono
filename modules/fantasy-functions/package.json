@@ -37,5 +37,6 @@
     "mocha": "^8.2.1",
     "rollup": "^2.35.1",
     "rollup-plugin-replace": "^2.2.0"
-  }
+  },
+  "gitHead": "cbcf21776ce5fb38d8bdb730f944af4736fc1403"
 }
