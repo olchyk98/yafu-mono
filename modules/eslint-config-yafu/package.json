@@ -1,8 +1,11 @@
 {
   "name": "@yafu/eslint-config-yafu",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": ".eslintrc.js",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "pretest": "yarn",
     "test": "eslint *.js"

@@ -1,11 +1,14 @@
 {
   "name": "@yafu/const",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Const monad",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "main": "dist/const.js",
   "module": "const.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint *.js",
