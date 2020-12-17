@@ -12,13 +12,28 @@ function generate (name, path) {
     "import definitions from '../../lib/definitions.js'",
     `import ${name} from '../../lib/${path}'`,
     '',
-    ...lines
+    ...lines,
   ].join('\n')
 }
 
+function generateMain () {
+  const lines = names.map((n) => (
+    `export const ${n} = fantasyFunctions.${n}`
+  ))
+
+  return [
+    "import * as production from './fantasy-functions-production'",
+    "import * as debug from './fantasy-functions-development'",
+    '',
+    "const fantasyFunctions = process.env.NODE_ENV === 'production' ? production : debug",
+    '',
+    ...lines,
+  ].join('\n')
+}
 
 if (!existsSync('dist/es6')) {
   mkdirSync('dist/es6', { recursive: true })
 }
 writeFileSync('dist/es6/fantasy-functions-development.js', generate('createDebugFunction', 'create-debug-function.js'))
 writeFileSync('dist/es6/fantasy-functions-production.js', generate('createFunction', 'create-function.js'))
+writeFileSync('dist/es6/fantasy-functions.js', generateMain())
