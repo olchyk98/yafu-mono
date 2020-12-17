@@ -33,7 +33,7 @@
   "homepage": "https://github.com/TheLudd/yafu#readme",
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-env": "^7.12.11",
     "@babel/register": "^7.9.0",
     "babel-plugin-add-module-exports": "^1.0.4",
     "camel-case": "^4.1.1",
