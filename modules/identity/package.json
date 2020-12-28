@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^11.0.1",
-    "eslint": "^7.15.0",
+    "eslint": "^7.16.0",
     "rollup": "^2.35.1"
   },
   "gitHead": "76609e54a0d57b9a161b69afb45b4eb89869a074"
