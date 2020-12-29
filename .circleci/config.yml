@@ -7,7 +7,6 @@ commands:
         default: '12'
         type: string
     steps:
-      - checkout
       - run:
           name: Set auth token
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
@@ -42,6 +41,11 @@ commands:
           name: Run tests
       - store_test_results:
           path: test-results
+  commitlint:
+    steps:
+      - run:
+          command: npx commitlint --from origin/master
+          name: Commitlint
 jobs:
   test:
     parameters:
@@ -50,13 +54,23 @@ jobs:
     docker:
       - image: circleci/node:<< parameters.node-version >>
     steps:
+      - checkout
       - install:
           node-version: << parameters.node-version >>
       - run-tests
+  commitlint:
+    docker:
+      - image: circleci/node:14
+    steps:
+      - checkout
+      - install:
+          node-version: '14'
+      - commitlint
 
 workflows:
   test-all:
     jobs:
+      - commitlint
       - test:
           matrix:
             parameters:
