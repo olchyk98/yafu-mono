@@ -6,9 +6,6 @@
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "main": "dist/identity.js",
   "module": "identity.js",
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint *.js",
@@ -23,6 +20,9 @@
     "@rollup/plugin-node-resolve": "^11.0.1",
     "eslint": "^7.16.0",
     "rollup": "^2.35.1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "gitHead": "76609e54a0d57b9a161b69afb45b4eb89869a074"
 }

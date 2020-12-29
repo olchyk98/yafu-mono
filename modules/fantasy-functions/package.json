@@ -10,9 +10,6 @@
     "readme.md",
     "index.js"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint lib test *.js",
@@ -37,6 +34,9 @@
     "mocha": "^8.2.1",
     "rollup": "^2.35.1",
     "rollup-plugin-replace": "^2.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "gitHead": "76609e54a0d57b9a161b69afb45b4eb89869a074"
 }

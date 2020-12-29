@@ -6,9 +6,6 @@
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "main": "dist/lens.js",
   "module": "index.js",
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint lib test *.js",
@@ -31,6 +28,9 @@
     "chai": "^4.2.0",
     "mocha": "^8.2.1",
     "rollup-plugin-replace": "^2.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "gitHead": "76609e54a0d57b9a161b69afb45b4eb89869a074"
 }

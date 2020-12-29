@@ -1,11 +1,8 @@
 {
   "name": "@yafu/eslint-config-yafu",
   "version": "1.0.2",
-  "main": ".eslintrc.js",
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
+  "main": ".eslintrc.js",
   "scripts": {
     "pretest": "yarn",
     "test": "eslint *.js"
@@ -14,6 +11,9 @@
     "eslint": "^7.16.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "gitHead": "76609e54a0d57b9a161b69afb45b4eb89869a074"
 }

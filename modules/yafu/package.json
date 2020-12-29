@@ -2,38 +2,33 @@
   "name": "yafu",
   "version": "1.0.4",
   "description": "Functional programming experimentation",
-  "main": "./dist/umd/yafu",
-  "module": "./lib/index.js",
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "acceptance": "mocha testrunners/acceptance",
-    "prebundle": "node build/create-index",
-    "bundle": "yarn clean && rollup -c",
-    "postpublish": "rm lib/index.js",
-    "clean": "rm -rf dist",
-    "prepublishOnly": "yarn clean && yarn run bundle && yarn run acceptance",
-    "jsdoc": "jsdoc -c jsdoc.json lib",
-    "test": "yarn unit && yarn bundle && yarn acceptance && rm lib/index.js",
-    "unit": "mocha testrunners/unit"
+  "homepage": "https://github.com/TheLudd/yafu#readme",
+  "bugs": {
+    "url": "https://github.com/TheLudd/yafu/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TheLudd/yafu.git"
   },
-  "author": "Ludwig Magnusson",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/TheLudd/yafu/issues"
+  "author": "Ludwig Magnusson",
+  "main": "./dist/umd/yafu",
+  "module": "./lib/index.js",
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "scripts": {
+    "acceptance": "mocha testrunners/acceptance",
+    "prebundle": "node build/create-index",
+    "bundle": "yarn clean && rollup -c",
+    "clean": "rm -rf dist",
+    "jsdoc": "jsdoc -c jsdoc.json lib",
+    "prepublishOnly": "yarn clean && yarn run bundle && yarn run acceptance",
+    "postpublish": "rm lib/index.js",
+    "test": "yarn unit && yarn bundle && yarn acceptance && rm lib/index.js",
+    "unit": "mocha testrunners/unit"
   },
-  "standard": {
-    "global": [
-      "describe",
-      "it"
-    ]
-  },
-  "homepage": "https://github.com/TheLudd/yafu#readme",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.12.11",
@@ -47,9 +42,14 @@
     "rollup-plugin-terser": "^7.0.2",
     "source-map-support": "^0.5.16"
   },
-  "files": [
-    "dist",
-    "lib"
-  ],
-  "gitHead": "76609e54a0d57b9a161b69afb45b4eb89869a074"
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "76609e54a0d57b9a161b69afb45b4eb89869a074",
+  "standard": {
+    "global": [
+      "describe",
+      "it"
+    ]
+  }
 }
