@@ -3,20 +3,19 @@
   "version": "0.0.0",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
-  "main": "index.js",
-  "type": "module",
   "scripts": {
+    "pretest": "yarn",
     "test": "yarn unit",
     "unit": "mocha"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "@babel/register": "^7.12.10",
-    "chai": "^4.2.0",
-    "mocha": "^8.2.1"
+    "@yafu/eslint-config-yafu": "^1.0.2",
+    "chai": "^4.2.0"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "yafu": "^1.0.4"
   }
 }
