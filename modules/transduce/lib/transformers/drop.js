@@ -5,9 +5,9 @@ import {
 } from './utils'
 
 export default function drop (n) {
-  let count = 0
-  return (transformer) => (
-    createTransformer(transformer, {
+  return (transformer) => {
+    let count = 0
+    return createTransformer(transformer, {
       [STEP] (acc, item) {
         const limitReached = count++ >= n
         return limitReached
@@ -15,5 +15,5 @@ export default function drop (n) {
           : acc
       },
     })
-  )
+  }
 }

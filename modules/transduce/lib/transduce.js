@@ -1,5 +1,6 @@
 import { curry } from 'yafu'
 import {
+  INIT,
   RESULT,
   STEP,
   init,
@@ -31,11 +32,48 @@ function arrayTransduce (reducer, initial) {
   return result(reducer, acc)
 }
 
+function arrayInit () {
+  return this.concat([])
+}
+
+function arrayStep (acc, item) {
+  acc.push(item)
+  return acc
+}
+
+function arrayResult (acc) {
+  return acc
+}
+
 // eslint-disable-next-line no-extend-native
 Object.defineProperty(Array.prototype, '@@transduce', {
   configurable: false,
   enumerable: false,
   value: arrayTransduce,
+  writable: true,
+})
+
+// eslint-disable-next-line no-extend-native
+Object.defineProperty(Array.prototype, INIT, {
+  configurable: false,
+  enumerable: false,
+  value: arrayInit,
+  writable: true,
+})
+
+// eslint-disable-next-line no-extend-native
+Object.defineProperty(Array.prototype, STEP, {
+  configurable: false,
+  enumerable: false,
+  value: arrayStep,
+  writable: true,
+})
+
+// eslint-disable-next-line no-extend-native
+Object.defineProperty(Array.prototype, RESULT, {
+  configurable: false,
+  enumerable: false,
+  value: arrayResult,
   writable: true,
 })
 
@@ -54,7 +92,7 @@ function transduceWrapped (transformer, fn) {
 }
 
 function transduce (transformer, x) {
-  return isTransformer(x)
+  return false
     ? transduceWithInit(transformer, x)
     : transduceWrapped(transformer, x)
 }

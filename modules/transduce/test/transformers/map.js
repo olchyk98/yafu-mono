@@ -1,7 +1,6 @@
 import { assert } from 'chai'
 import map from '../../lib/transformers/map'
-import push from '../../lib/transformers/push'
-import transduce from '../../lib/transduce'
+import into from '../../lib/into'
 
 const { deepEqual } = assert
 
@@ -11,10 +10,10 @@ function inc (x) {
 
 it('map', () => {
   const list = [ 1, 2, 3 ]
-  const result = transduce(
+  const result = into(
+    [],
     map(inc),
-    push,
     list,
   )
-  deepEqual([ 2, 3, 4 ], result)
+  deepEqual(result, [ 2, 3, 4 ])
 })

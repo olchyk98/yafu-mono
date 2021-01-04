@@ -1,7 +1,6 @@
 import { assert } from 'chai'
 import chain from '../../lib/transformers/chain'
-import push from '../../lib/transformers/push'
-import transduce from '../../lib/transduce'
+import into from '../../lib/into'
 
 const { deepEqual } = assert
 
@@ -12,9 +11,9 @@ it('chain', () => {
     { tags: [ 'a', 'b', 'c' ] },
     { tags: [ 'd', 'e', 'f' ] },
   ]
-  const result = transduce(
+  const result = into(
+    [],
     chain(getTags),
-    push,
     list,
   )
   deepEqual(result, [ 'a', 'b', 'c', 'd', 'e', 'f' ])

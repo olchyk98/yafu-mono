@@ -24,6 +24,9 @@ export const result = (transformer, acc) => transformer[RESULT](acc)
 
 function createBaseTransformer (nextTransformer) {
   return {
+    [INIT] () {
+      return init(nextTransformer)
+    },
     [STEP] (acc, item) {
       return step(nextTransformer, acc, item)
     },
@@ -43,4 +46,3 @@ export function reduced (obj) {
     [VALUE]: obj,
   }
 }
-
