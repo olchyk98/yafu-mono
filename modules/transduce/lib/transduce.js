@@ -1,15 +1,14 @@
-import { curry } from 'yafu'
+import { I, curry } from 'yafu'
 import {
   INIT,
   RESULT,
   STEP,
-  init,
   isReduced,
-  isTransformer,
   result,
   step,
   value,
 } from './transformers'
+import runTransduce from './run-transduce'
 
 function createAccumulator (fn) {
   return {
@@ -41,10 +40,6 @@ function arrayStep (acc, item) {
   return acc
 }
 
-function arrayResult (acc) {
-  return acc
-}
-
 // eslint-disable-next-line no-extend-native
 Object.defineProperty(Array.prototype, '@@transduce', {
   configurable: false,
@@ -73,28 +68,13 @@ Object.defineProperty(Array.prototype, STEP, {
 Object.defineProperty(Array.prototype, RESULT, {
   configurable: false,
   enumerable: false,
-  value: arrayResult,
+  value: I,
   writable: true,
 })
 
-function perform (transformer, reducer, initial, transducible) {
-  return transducible['@@transduce'](transformer(reducer), initial)
-}
-
-function transduceWithInit (transformer, reducer) {
-  const acc = init(reducer)
-  return (transducible) => perform(transformer, reducer, acc, transducible)
-}
-
-function transduceWrapped (transformer, fn) {
+function transduce (transformer, fn) {
   const reducer = createAccumulator(fn)
-  return (acc, transducible) => perform(transformer, reducer, acc, transducible)
-}
-
-function transduce (transformer, x) {
-  return false
-    ? transduceWithInit(transformer, x)
-    : transduceWrapped(transformer, x)
+  return (acc, transducible) => runTransduce(transformer, reducer, acc, transducible)
 }
 
 export default curry(transduce)
