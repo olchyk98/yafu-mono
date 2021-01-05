@@ -7,7 +7,7 @@ import {
   result,
   step,
   value,
-} from './transformers'
+} from './transformers/utils'
 import runTransduce from './run-transduce'
 
 function createAccumulator (fn) {

@@ -1,5 +1,5 @@
 import { Transform } from 'stream'
-import { step } from './transformers'
+import { step } from './transformers/utils'
 
 function streamTransduce (reducer, initial) {
   const readable = this

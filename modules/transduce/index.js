@@ -1,3 +1,8 @@
-module.exports = process.env.NODE_ENV === 'production'
-  ? require('./dist/cjs/fantasy-functions-production')
-  : require('./dist/cjs/fantasy-functions-development')
+export { default } from './lib/transduce'
+export { default as into } from './lib/into'
+export { default as chain } from './lib/transformers/chain'
+export { default as drop } from './lib/transformers/drop'
+export { default as filter } from './lib/transformers/filter'
+export { default as map } from './lib/transformers/map'
+export { default as take } from './lib/transformers/take'
+export * from './lib/transformers/utils'

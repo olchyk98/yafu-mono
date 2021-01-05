@@ -1,4 +1,4 @@
-import { init } from './transformers'
+import { init } from './transformers/utils'
 
 import runTransduce from './run-transduce'
 
