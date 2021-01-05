@@ -1,3 +1,19 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.1.0](https://github.com/TheLudd/yafu/compare/yafu@1.0.4...yafu@1.1.0) (2021-01-05)
+
+
+### Features
+
+* add clamp function ([a6015e9](https://github.com/TheLudd/yafu/commit/a6015e9974b384eda20c17c2afd85d7da89ac588))
+
+
+
+
+
 ### 0.1.13
 
 #### Additions
@@ -67,4 +83,3 @@
 
 #### Bug fixes / improvemens
  * Remove non needed dependency
-
