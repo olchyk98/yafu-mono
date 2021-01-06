@@ -19,6 +19,9 @@ commands:
           name: 'Restoring cache'
           key: yafu-node-<< parameters.node-version >>-{{ checksum "yarn.lock" }}-{{ checksum "/tmp/folders" }}
       - run:
+          name: 'Check'
+          command: yarn check
+      - run:
           name: 'Install packages'
           command: yarn install --frozen-lockfile
       - save_cache:
@@ -71,7 +74,7 @@ jobs:
 workflows:
   test-all:
     jobs:
-      - commitlint
+      # - commitlint
       - test:
           matrix:
             parameters:
